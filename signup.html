@@ -49,12 +49,19 @@
 <body>
   <div class="container">
     <h2>Create Account</h2>
-    <form>
+    <form id="signup-form">
       <input type="text" placeholder="Username" required />
       <input type="email" placeholder="Email" required />
       <input type="password" placeholder="Password" required />
       <button type="submit">Sign Up</button>
     </form>
   </div>
+
+  <script>
+    document.getElementById("signup-form").addEventListener("submit", function(event) {
+      event.preventDefault(); // جلوگیری از رفرش صفحه
+      window.location.href = "home.html"; // انتقال به صفحه home
+    });
+  </script>
 </body>
 </html>
