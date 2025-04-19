@@ -1,67 +1,72 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fa">
 <head>
-  <meta charset="UTF-8" />
-  <title>Sign Up | NAVA</title>
+  <meta charset="UTF-8">
+  <title>ثبت‌نام | NAVA</title>
   <style>
     body {
-      background-color: #0d0d0d;
-      color: white;
+      background-color: #111;
+      color: #fff;
       font-family: sans-serif;
       display: flex;
       justify-content: center;
       align-items: center;
       height: 100vh;
+      direction: rtl;
     }
     .container {
-      background-color: #1a1a1a;
-      padding: 40px;
+      background-color: #222;
+      padding: 30px;
       border-radius: 10px;
-      box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
       width: 300px;
     }
-    input {
+    input, button {
       width: 100%;
       padding: 10px;
       margin: 10px 0;
-      border: none;
       border-radius: 5px;
+      border: none;
     }
     button {
-      width: 100%;
-      padding: 10px;
-      background-color: white;
-      color: black;
+      background-color: #fff;
+      color: #000;
       font-weight: bold;
-      border: none;
-      border-radius: 5px;
       cursor: pointer;
-    }
-    button:hover {
-      background-color: #ccc;
-    }
-    h2 {
-      text-align: center;
-      margin-bottom: 20px;
     }
   </style>
 </head>
 <body>
   <div class="container">
-    <h2>Create Account</h2>
-    <form id="signup-form">
-      <input type="text" placeholder="Username" required />
-      <input type="email" placeholder="Email" required />
-      <input type="password" placeholder="Password" required />
-      <button type="submit">Sign Up</button>
-    </form>
+    <h2>ثبت‌نام</h2>
+    <input type="email" id="email" placeholder="ایمیل">
+    <input type="password" id="password" placeholder="رمز عبور">
+    <button onclick="signup()">ثبت‌نام</button>
   </div>
 
-  <script>
-    document.getElementById("signup-form").addEventListener("submit", function(event) {
-      event.preventDefault(); // جلوگیری از رفرش صفحه
-      window.location.href = "home.html"; // انتقال به صفحه home
-    });
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-app.js";
+    import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-auth.js";
+
+    const firebaseConfig = {
+      apiKey: "مقدار API Key",
+      authDomain: "مقدار Auth Domain",
+      projectId: "مقدار Project ID",
+      storageBucket: "مقدار Storage Bucket",
+      messagingSenderId: "مقدار Messaging ID",
+      appId: "مقدار App ID"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+
+    window.signup = function () {
+      const email = document.getElementById("email").value;
+      const password = document.getElementById("password").value;
+
+      createUserWithEmailAndPassword(auth, email, password)
+        .then(() => alert("ثبت‌نام موفق!"))
+        .catch((error) => alert("خطا: " + error.message));
+    }
   </script>
 </body>
 </html>
