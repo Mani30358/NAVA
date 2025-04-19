@@ -1,67 +1,72 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fa">
 <head>
-  <meta charset="UTF-8" />
-  <title>Login | NAVA</title>
+  <meta charset="UTF-8">
+  <title>ورود | NAVA</title>
   <style>
     body {
-      background-color: #0d0d0d;
-      color: white;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #111;
+      color: #fff;
+      font-family: sans-serif;
       display: flex;
       justify-content: center;
       align-items: center;
       height: 100vh;
+      direction: rtl;
     }
-
     .container {
-      background-color: #1a1a1a;
-      padding: 40px;
+      background-color: #222;
+      padding: 30px;
       border-radius: 10px;
-      box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
       width: 300px;
     }
-
-    input {
+    input, button {
       width: 100%;
       padding: 10px;
       margin: 10px 0;
-      background-color: #2a2a2a;
-      border: none;
       border-radius: 5px;
-      color: white;
+      border: none;
     }
-
     button {
-      width: 100%;
-      padding: 10px;
-      background-color: white;
-      color: black;
+      background-color: #fff;
+      color: #000;
       font-weight: bold;
-      border: none;
-      border-radius: 5px;
       cursor: pointer;
-      margin-top: 10px;
-    }
-
-    button:hover {
-      background-color: #ccc;
-    }
-
-    h2 {
-      text-align: center;
-      margin-bottom: 20px;
     }
   </style>
 </head>
 <body>
   <div class="container">
-    <h2>Welcome Back</h2>
-    <form action="home.html">
-      <input type="email" placeholder="Email" required />
-      <input type="password" placeholder="Password" required />
-      <button type="submit">Login</button>
-    </form>
+    <h2>ورود</h2>
+    <input type="email" id="email" placeholder="ایمیل">
+    <input type="password" id="password" placeholder="رمز عبور">
+    <button onclick="login()">ورود</button>
   </div>
+
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-app.js";
+    import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-auth.js";
+
+    const firebaseConfig = {
+      apiKey: "مقدار API Key",
+      authDomain: "مقدار Auth Domain",
+      projectId: "مقدار Project ID",
+      storageBucket: "مقدار Storage Bucket",
+      messagingSenderId: "مقدار Messaging ID",
+      appId: "مقدار App ID"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+
+    window.login = function () {
+      const email = document.getElementById("email").value;
+      const password = document.getElementById("password").value;
+
+      signInWithEmailAndPassword(auth, email, password)
+        .then(() => alert("ورود موفق!"))
+        .catch((error) => alert("خطا: " + error.message));
+    }
+  </script>
 </body>
-  </html>
+</html>
