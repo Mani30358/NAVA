@@ -64,7 +64,10 @@
       const password = document.getElementById("password").value;
 
       signInWithEmailAndPassword(auth, email, password)
-        .then(() => alert("ورود موفق!"))
+        .then(() => {
+          alert("ورود موفق!");
+          window.location.href = "home.html";
+        })
         .catch((error) => alert("خطا: " + error.message));
     }
   </script>
