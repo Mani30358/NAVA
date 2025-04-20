@@ -3,77 +3,78 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>NAVA</title>
+  <title>NAVA - Real Life Stories</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet" />
   <style>
-    body {
-      margin: 0;
-      padding: 0;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-color: #000;
-      color: #fff;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      height: 100vh;
-      text-align: center;
-    }
-
-    h1 {
-      font-size: 3rem;
-      margin-bottom: 1rem;
-      letter-spacing: 2px;
-    }
-
-    p {
-      font-size: 1.2rem;
-      max-width: 600px;
-      line-height: 1.6;
-    }
-
-    .buttons {
-      margin-top: 30px;
-      display: flex;
-      gap: 20px;
-    }
-
-    .btn {
-      padding: 12px 24px;
-      font-size: 18px;
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      box-shadow: 0 4px 12px rgba(255, 255, 255, 0.1);
-    }
-
-    .btn-signup {
-      background-color: #fff;
-      color: #000;
-    }
-
-    .btn-signup:hover {
-      transform: scale(1.08);
-      background-color: #eee;
-    }
-
-    .btn-login {
-      background-color: #444;
-      color: #fff;
-    }
-
-    .btn-login:hover {
-      transform: scale(1.08);
-      background-color: #666;
-    }
+    body { margin: 0; font-family: 'Inter', sans-serif; background-color: #0f0f0f; color: #fff; }
+    header { display: flex; justify-content: space-between; align-items: center; padding: 1rem 2rem; background-color: #1a1a1a; }
+    .logo { font-size: 1.5rem; font-weight: bold; }
+    nav a { color: #fff; margin-left: 1rem; text-decoration: none; }
+    .hero { padding: 4rem 2rem; text-align: center; background: linear-gradient(to right, #202020, #0f0f0f); }
+    .hero h1 { font-size: 2.5rem; margin-bottom: 1rem; }
+    .hero p { font-size: 1.2rem; color: #ccc; margin-bottom: 2rem; }
+    .hero button { background-color: #fff; color: #000; border: none; padding: 0.75rem 1.5rem; font-size: 1rem; cursor: pointer; border-radius: 8px; }
+    .features { display: flex; flex-wrap: wrap; justify-content: center; padding: 2rem; background-color: #121212; }
+    .feature { max-width: 300px; margin: 1rem; background-color: #1f1f1f; padding: 1.5rem; border-radius: 12px; }
+    .feature h3 { margin-top: 0; }
+    .image-section, .video-section, .form-section { padding: 3rem 2rem; text-align: center; background-color: #181818; }
+    .image-section img, .video-section video { max-width: 100%; border-radius: 16px; margin-top: 1rem; }
+    .form-section form { max-width: 500px; margin: 2rem auto 0 auto; display: flex; flex-direction: column; gap: 1rem; }
+    .form-section input, .form-section textarea { padding: 1rem; border-radius: 8px; border: none; font-size: 1rem; }
+    .form-section button { background-color: #fff; color: #000; border: none; padding: 0.75rem; font-size: 1rem; border-radius: 8px; cursor: pointer; }
+    footer { text-align: center; padding: 2rem; background-color: #1a1a1a; color: #999; }
   </style>
 </head>
 <body>
-  <h1>NAVA</h1>
-  <p>Welcome! This is a space for empathy and collaboration.</p>
-  <div class="buttons">
-    <a href="signup.html"><button class="btn btn-signup">Sign Up</button></a>
-    <a href="login.html"><button class="btn btn-login">Log In</button></a>
-  </div>
+  <header>
+    <div class="logo">NAVA</div>
+    <nav>
+      <a href="#">Home</a>
+      <a href="#">Sign Up</a>
+      <a href="#">Login</a>
+    </nav>
+  </header>
+  <section class="hero">
+    <h1>Write, Read, and Feel Real Life Stories</h1>
+    <p>NAVA is a platform where everyone shares the raw, beautiful, and painful truth of life. Start reading or writing today.</p>
+    <button onclick="location.href='signup.html'">Get Started</button>
+  </section>
+  <section class="features">
+    <div class="feature">
+      <h3>Write Your Life</h3>
+      <p>Put your heart into words and publish your real-life stories with ease.</p>
+    </div>
+    <div class="feature">
+      <h3>Read Others</h3>
+      <p>Explore stories of love, struggle, growth, and humanity from people around the world.</p>
+    </div>
+    <div class="feature">
+      <h3>Earn from Reactions</h3>
+      <p>Collect likes and unlock rewards as your story touches lives.</p>
+    </div>
+  </section>
+  <section class="image-section">
+    <h2>See NAVA in Action</h2>
+    <img src="https://source.unsplash.com/featured/?storytelling" alt="Storytelling Image">
+  </section>
+  <section class="video-section">
+    <h2>Watch How It Works</h2>
+    <video controls>
+      <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+  </section>
+  <section class="form-section">
+    <h2>Write Your First Story</h2>
+    <form>
+      <input type="text" placeholder="Your Name" required>
+      <input type="text" placeholder="Story Title" required>
+      <textarea rows="6" placeholder="Write your story here..." required></textarea>
+      <button type="submit">Submit Story</button>
+    </form>
+  </section>
+  <footer>
+    &copy; 2025 NAVA. Built with heart.
+  </footer>
 </body>
-</html>
+        </html>
